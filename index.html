@@ -6,18 +6,22 @@
 <title>DVRKC0DE Collective</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  .hero-logo {
-  max-width: 800px;      /* dopasuj szerokość logo */
-  width: 80%;             /* responsywność */
-  height: auto;
-  display: block;
-  margin: 0 auto;         /* centrowanie poziome */
-}
-/* Reset i podstawy */
 * {margin:0; padding:0; box-sizing:border-box;}
 body {font-family:'Inter', sans-serif; background:#0a0a0a; color:white; line-height:1.6; overflow-x:hidden;}
 
 /* HERO fullscreen video */
+<!-- HERO z fullscreen MP4 + logo -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <img src="logo.png" alt="Twoje Logo" class="hero-logo">
+    <p>Established 2026 – International electronic music collective</p>
+  </div>
+</section>
+
+<style>
 .hero {position:relative; height:100vh; width:100%; overflow:hidden;}
 .bg-video {
   position:absolute; top:50%; left:50%;
@@ -29,28 +33,45 @@ body {font-family:'Inter', sans-serif; background:#0a0a0a; color:white; line-hei
 .hero::after {
   content:""; position:absolute; top:0; left:0;
   width:100%; height:100%;
-  background:rgba(0,0,0,0.3); z-index:1;
+  background:rgba(0,0,0,0.3); z-index:2; /* ciemny overlay nad wideo */
+}
+.hero::before {
+  content:""; position:absolute; top:0; left:0;
+  width:100%; height:100%;
+  background: url('https://www.transparenttextures.com/patterns/grain.png');
+  opacity:0.1; z-index:3; /* lekki grain overlay */
 }
 .hero-content {
-  position:relative; z-index:2; text-align:center;
+  position:relative; z-index:4; text-align:center;
   top:50%; transform:translateY(-50%);
 }
-.hero-content h1 {font-size:4rem; font-weight:700; letter-spacing:-1px;}
-.hero-content p {font-weight:300; margin-top:20px; color:#aaa;}
+.hero-logo {
+  max-width: 400px; width:80%; height:auto; display:block; margin:0 auto;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.7)); /* cień pod logo */
+}
+.hero-content p {
+  font-weight:300; margin-top:20px; color:#aaa; font-size:1.2rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.7); /* cień pod tagline */
+}
+</style>
+
+@keyframes fadeUp {
+  to {opacity:1; transform: translateY(0);}
+}
 
 /* Sekcje */
 section {padding:80px 10%; max-width:1200px; margin:auto;}
 h2 {font-size:2rem; margin-bottom:40px; font-weight:500; border-bottom:1px solid #222; padding-bottom:10px;}
 
 /* Mixes SoundCloud */
-iframe {width:100%; height:166px; margin-bottom:30px;}
+iframe {width:100%; height:166px; margin-bottom:30px; border-radius:4px; border:1px solid #222;}
 
 /* Artists */
-.artist {margin-bottom:40px;}
-
-/* Links */
-a {color:white; text-decoration:none; border-bottom:1px solid #333;}
-a:hover {border-bottom:1px solid white;}
+.artist {margin-bottom:40px; font-size:1.1rem;}
+.artist a {color:white; text-decoration:none; border-bottom:1px solid #555; transition:border-color 0.2s;}
+.artist a:hover {border-bottom:1px solid #ff0080;}
+.ig-icon {width:24px; height:24px; vertical-align:middle; margin-left:8px; filter: invert(100%); transition: filter 0.2s;}
+.ig-icon:hover {filter: invert(60%) sepia(1) saturate(5) hue-rotate(320deg);}
 
 /* Footer */
 footer {padding:40px 10%; color:#666; font-size:0.9rem; text-align:center;}
@@ -64,42 +85,50 @@ footer {padding:40px 10%; color:#666; font-size:0.9rem; text-align:center;}
     <source src="intro.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <img src="DCLogo.png" alt="DVRKC0DE Logo" class="hero-logo">
-    <p>Established 2023 in Stockholm | Electronic music collective</p>
+    <img src="logo.png" alt="DVRKC0DE Logo" class="hero-logo">
+    <p>Established 2023, Stockholm | Electronic music collective</p>
   </div>
-  <!-- Mixes -->
-<section>
-  <h2>Mixes</h2>
-  <!-- Wklej tu embed z SoundCloud -->
-  <iframe scrolling="no" frameborder="no" src="https://soundcloud.com/klvudivblvck/sweet-seduction?si=a2a6759d4df74f3eaf78eb82f0403cdc&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"></iframe>
-  <iframe scrolling="no" frameborder="no" src="https://soundcloud.com/sbcsly/070825a?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=e09a842dd46c45b7ae2e7e6a9500d887"></iframe>
 </section>
 
+<!-- Mixes -->
+<section>
+  <h2>Mixes</h2>
+  <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://soundcloud.com/klvudivblvck/sweet-seduction?si=b1a5e18571054a249ce7f4d9ece1ea20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+  </iframe>
+  <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://soundcloud.com/sbcsly/070825a?si=247a4cfa06b947dfbc504ddfebd910d6&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+  </iframe>
 </section>
+
 <!-- Artists -->
 <section>
   <h2>Artists</h2>
   <div class="artist">
-    <strong>KLVUDIVBLVCK</strong>
-    <a href="https://www.instagram.com/klvudivblvck/" target="_blank">@klvudivblvck</a>
+    <strong>Klvudiv Blvck</strong> – 
+    <a href="https://www.instagram.com/klvudivblvck/" target="_blank">
+      <img src="assets/igwhite.png" alt="Instagram @klvudivblvck" class="ig-icon">
+    </a>
   </div>
   <div class="artist">
-    <strong>SBCSLY</strong>
-    <a href="https://www.instagram.com/_subconsciously_/" target="_blank">@_subconsciously_</a>
+    <strong>Roger</strong> – 
+    <a href="https://www.instagram.com/roger/" target="_blank">
+      <img src="assets/igwhite.png" alt="Instagram @roger" class="ig-icon">
+    </a>
   </div>
 </section>
 
 <!-- Events -->
 <section>
   <h2>Events</h2>
-  <p>Last event: 10.01.2026, Smolna - Warsaw – line-up: KTK + DLV + KLVUDIVBLVCK + SBCSLY</p>
-  <p>Next event: Coming soon...</p>
+  <p>Next event: 15.03.2026, Stockholm – line-up: Klvudiv Blvck & Roger</p>
+  <p>Previous events: photos and videos coming soon</p>
 </section>
 
 <!-- Booking -->
 <section>
   <h2>Booking</h2>
-  <p>Email: <a href="mailto:konrad@dvrkc0de.com">konrad@dvrkc0de.com</a></p>
+  <p>Email: <a href="mailto:booking@dvrkc0de.com">booking@dvrkc0de.com</a></p>
 </section>
 
 <footer>
