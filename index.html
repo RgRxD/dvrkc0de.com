@@ -10,18 +10,6 @@
 body {font-family:'Inter', sans-serif; background:#0a0a0a; color:white; line-height:1.6; overflow-x:hidden;}
 
 /* HERO fullscreen video */
-<!-- HERO z fullscreen MP4 + logo -->
-<section class="hero">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="intro.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content">
-    <img src="logo.png" alt="Twoje Logo" class="hero-logo">
-    <p>Established 2026 – International electronic music collective</p>
-  </div>
-</section>
-
-<style>
 .hero {position:relative; height:100vh; width:100%; overflow:hidden;}
 .bg-video {
   position:absolute; top:50%; left:50%;
@@ -33,7 +21,7 @@ body {font-family:'Inter', sans-serif; background:#0a0a0a; color:white; line-hei
 .hero::after {
   content:""; position:absolute; top:0; left:0;
   width:100%; height:100%;
-  background:rgba(0,0,0,0.3); z-index:2; /* ciemny overlay nad wideo */
+  background:rgba(0,0,0,0.3); z-index:2; /* ciemny overlay */
 }
 .hero::before {
   content:""; position:absolute; top:0; left:0;
@@ -52,11 +40,6 @@ body {font-family:'Inter', sans-serif; background:#0a0a0a; color:white; line-hei
 .hero-content p {
   font-weight:300; margin-top:20px; color:#aaa; font-size:1.2rem;
   text-shadow: 0 4px 8px rgba(0,0,0,0.7); /* cień pod tagline */
-}
-</style>
-
-@keyframes fadeUp {
-  to {opacity:1; transform: translateY(0);}
 }
 
 /* Sekcje */
@@ -79,7 +62,7 @@ footer {padding:40px 10%; color:#666; font-size:0.9rem; text-align:center;}
 </head>
 <body>
 
-<!-- HERO z fullscreen MP4 -->
+<!-- HERO z fullscreen MP4 + logo -->
 <section class="hero">
   <video autoplay muted loop playsinline class="bg-video">
     <source src="intro.mp4" type="video/mp4">
@@ -93,27 +76,28 @@ footer {padding:40px 10%; color:#666; font-size:0.9rem; text-align:center;}
 <!-- Mixes -->
 <section>
   <h2>Mixes</h2>
+  <!-- Zamień USERNAME/MIX1 i USERNAME/MIX2 na swoje embedy SoundCloud -->
   <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-    src="https://soundcloud.com/klvudivblvck/sweet-seduction?si=b1a5e18571054a249ce7f4d9ece1ea20&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/USERNAME/MIX1&color=%23ff0080&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
   </iframe>
   <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-    src="https://soundcloud.com/sbcsly/070825a?si=247a4cfa06b947dfbc504ddfebd910d6&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/USERNAME/MIX2&color=%23ff0080&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
   </iframe>
 </section>
 
-<!-- Artists -->
+<!-- Artists z klikanymi ikonami IG -->
 <section>
   <h2>Artists</h2>
   <div class="artist">
     <strong>Klvudiv Blvck</strong> – 
     <a href="https://www.instagram.com/klvudivblvck/" target="_blank">
-      <img src="assets/igwhite.png" alt="Instagram @klvudivblvck" class="ig-icon">
+      <img src="assets/instagram.svg" alt="Instagram @klvudivblvck" class="ig-icon">
     </a>
   </div>
   <div class="artist">
     <strong>Roger</strong> – 
     <a href="https://www.instagram.com/roger/" target="_blank">
-      <img src="assets/igwhite.png" alt="Instagram @roger" class="ig-icon">
+      <img src="assets/instagram.svg" alt="Instagram @roger" class="ig-icon">
     </a>
   </div>
 </section>
@@ -121,8 +105,8 @@ footer {padding:40px 10%; color:#666; font-size:0.9rem; text-align:center;}
 <!-- Events -->
 <section>
   <h2>Events</h2>
-  <p>Next event: 15.03.2026, Stockholm – line-up: Klvudiv Blvck & Roger</p>
-  <p>Previous events: photos and videos coming soon</p>
+  <p>Last event: Warsaw, Smolna with KTK + DLV + KLVUDIVBLCK + SBCSLY</p>
+  <p>Next events: stay tuned…</p>
 </section>
 
 <!-- Booking -->
